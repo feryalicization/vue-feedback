@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import FeedbackForm from '../components/FeedbackForm.vue';
-import TestForm from '../components/TestForm.vue';
+import Test from '../components/TestForm.vue';
 
 const routes = [
   {
@@ -10,8 +10,8 @@ const routes = [
   },
   {
     path: '/test',
-    name: 'TestForm',
-    component: TestForm,
+    name: 'Test',
+    component: Test,
   },
 ];
 

@@ -1,51 +1,15 @@
 <template>
-  <v-card
-    class="px-2 mx-auto"
-    max-width="300"
-    rounded="lg"
-    text="How satisfied are you with developing using Vuetify?"
-    theme="dark"
-    title="SURVEY"
-    variant="flat"
-  >
-    <template v-slot:append>
-      <div class="me-n2">
-        <v-btn
-          density="comfortable"
-          icon="$close"
-          variant="plain"
-        ></v-btn>
-      </div>
-    </template>
-
-    <v-item-group
-      v-model="model"
-      class="d-flex justify-sm-space-between px-6 pt-2 pb-6"
-    >
-      <v-item
-        v-for="n in 5"
-        :key="n"
-      >
-        <v-btn
-          :active="model === n"
-          :icon="`mdi-numeric-${n}`"
-          height="40"
-          variant="text"
-          width="40"
-          border
-          @click="model = n"
-        ></v-btn>
-      </v-item>
-    </v-item-group>
-  </v-card>
+  <div class="d-flex align-center justify-center flex-column">
+    <v-rating
+      v-model="rating"
+      :item-labels="['sad', '', '', '', 'happy']"
+      class="ma-2"
+      item-label-position="bottom"
+    ></v-rating>
+  </div>
 </template>
-
 <script>
-export default {
-  data() {
-    return {
-      model: null,
-    };
-  },
-};
+  export default {
+    data: () => ({ rating: 4 }),
+  }
 </script>
