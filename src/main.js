@@ -3,16 +3,26 @@ import App from './App.vue';
 import axios from 'axios';
 import router from './router';
 
+import 'vuetify/styles'
+import { createVuetify } from 'vuetify'
+import * as components from 'vuetify/components'
+import * as directives from 'vuetify/directives'
+
+
+const vuetify = createVuetify({
+    components,
+    directives,
+  })
+  
+
+
 const app = createApp(App);
 
-// Set base URL for Axios requests
-axios.defaults.baseURL = 'http://localhost:8000'; // Replace with your FastAPI server URL
+axios.defaults.baseURL = 'http://localhost:8000'; 
 
-// Make axios available globally through app.config.globalProperties
 app.config.globalProperties.$http = axios;
 
-// Use the router
 app.use(router);
+app.use(vuetify);
 
-// Mount the app to the DOM
 app.mount('#app');
