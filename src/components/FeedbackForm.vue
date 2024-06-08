@@ -52,23 +52,21 @@
 </template>
 
 <script>
-import axios from 'axios';
+import feedbackApi from '@/api/feedbackApi';
 
 export default {
   data() {
     return {
       rating: 4,
       showAlert: false,
+      alertType: 'success',
     };
   },
   methods: {
     async submitFeedback() {
       try {
-        const response = await axios.post('http://localhost:8000/feedback', {
-          score: this.rating
-        });
-        console.log(response.data);
-        this.showAlert = true; 
+        await feedbackApi.submitFeedback(this.rating); 
+        this.showAlert = true;
         setTimeout(() => {
           this.closeAlert();
         }, 3000);
@@ -83,6 +81,7 @@ export default {
     }
   }
 };
+
 </script>
 
 
